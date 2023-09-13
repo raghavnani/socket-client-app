@@ -1,0 +1,12 @@
+version: "3.6"
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: [bash, -c, "python3 run.py"] 
+    container_name: test
+    ports: 
+      - 5000:5000
+    volumes:
+      - ./:/src/

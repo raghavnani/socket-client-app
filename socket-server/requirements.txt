@@ -1,0 +1,7 @@
+flask
+flask-restful
+flask-socketio
+flask-cors
+pandas
+requests==2.23.0
+ravenpackapi

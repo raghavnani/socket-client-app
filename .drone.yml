@@ -1,0 +1,45 @@
+kind: pipeline
+name: default
+type: kubernetes
+
+steps:  
+# - name: client
+#   image: plugins/docker
+#   settings:
+#     username: 
+#       from_secret: docker_username
+#     password:   
+#       from_secret: docker_password
+#     repo: bluanalytics33/tensortrade_monitoring    
+#   tag: bluanalytics33/tensortrade_monitoring_client:latest
+#   file: socket-client/Dockerfile
+#   when:
+#     branch: [ master ]
+#     event: [ push ] 
+
+- name: publish
+  image: plugins/docker
+  settings:
+    username: 
+      from_secret: docker_username
+    password:   
+      from_secret: docker_password
+    repo: bluanalytics33/tensortrade_monitoring
+  tag: latest
+  file: Dockerfile
+  when:
+    branch: [ master ]
+    event: [ push ] 
+---                 
+kind: secret
+name: docker_username
+get:
+  path: kv/data/secret/drone/docker/login
+  name: username
+
+---
+kind: secret
+name: docker_password
+get:
+  path: kv/data/secret/drone/docker/login
+  name: password

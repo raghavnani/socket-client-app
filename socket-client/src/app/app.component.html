@@ -1,0 +1,132 @@
+
+
+
+<div class="example-container">
+
+  <div class="row top">
+
+    <div class="col-md-4">
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>SEARCH_STRING</mat-label>
+        <input matInput [(ngModel)]="SEARCH_STRING" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>ENTITY_NAME</mat-label>
+        <input matInput [(ngModel)]="ENTITY_NAME" >
+      </mat-form-field>
+<!-- 
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>EVENT_RELEVANCE</mat-label>
+        <input matInput  [(ngModel)]="EVENT_RELEVANCE" >
+      </mat-form-field> -->
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>TOPIC</mat-label>
+        <input matInput  [(ngModel)]="TOPIC" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>GROUP</mat-label>
+        <input matInput [(ngModel)]="GROUP" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>TYPE</mat-label>
+        <input matInput  [(ngModel)]="TYPE" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>FACT_LEVEL</mat-label>
+        <input matInput  [(ngModel)]="FACT_LEVEL" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>CATEGORY</mat-label>
+        <input matInput [(ngModel)]="CATEGORY" >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="margin:5px;">
+        <mat-label>SOURCE_NAME</mat-label>
+        <input matInput  [(ngModel)]="SOURCE_NAME" >
+      </mat-form-field>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-2">
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" (click)="onSubmit()" >Submit</button>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+<div class="top">
+  <div *ngIf="dataSource.data.length > 0"  class="example-container mat-elevation-z8">
+
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="TIMESTAMP_UTC">
+      <th mat-header-cell *matHeaderCellDef> TIMESTAMP_UTC </th>
+      <td mat-cell *matCellDef="let element"> {{element.TIMESTAMP_UTC}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ENTITY_NAME">
+      <th mat-header-cell *matHeaderCellDef> ENTITY_NAME </th>
+      <td mat-cell *matCellDef="let element"> {{element.ENTITY_NAME}} </td>
+    </ng-container>
+    <ng-container matColumnDef="TOPIC">
+      <th mat-header-cell *matHeaderCellDef> TOPIC </th>
+      <td mat-cell *matCellDef="let element"> {{element.TOPIC}} </td>
+    </ng-container>
+    <ng-container matColumnDef="GROUP">
+      <th mat-header-cell *matHeaderCellDef> GROUP </th>
+      <td mat-cell *matCellDef="let element"> {{element.GROUP}} </td>
+    </ng-container>
+    <ng-container matColumnDef="TYPE">
+      <th mat-header-cell *matHeaderCellDef> TYPE </th>
+      <td mat-cell *matCellDef="let element"> {{element.TYPE}} </td>
+    </ng-container> 
+    <ng-container matColumnDef="EVENT_RELEVANCE">
+      <th mat-header-cell *matHeaderCellDef> EVENT_RELEVANCE </th>
+      <td mat-cell *matCellDef="let element"> {{element.EVENT_RELEVANCE}} </td>
+    </ng-container>
+    <ng-container matColumnDef="EVENT_SENTIMENT_SCORE">
+      <th mat-header-cell *matHeaderCellDef> EVENT_SENTIMENT_SCORE </th>
+      <td mat-cell *matCellDef="let element"> {{element.EVENT_SENTIMENT_SCORE}} </td>
+    </ng-container>
+    <ng-container matColumnDef="FACT_LEVEL">
+      <th mat-header-cell *matHeaderCellDef> FACT_LEVEL </th>
+      <td mat-cell *matCellDef="let element"> {{element.FACT_LEVEL}} </td>
+    </ng-container>
+    <ng-container matColumnDef="CATEGORY">
+      <th mat-header-cell *matHeaderCellDef> CATEGORY </th>
+      <td mat-cell *matCellDef="let element"> {{element.CATEGORY}} </td>
+    </ng-container>
+    <ng-container matColumnDef="SOURCE_NAME">
+      <th mat-header-cell *matHeaderCellDef> SOURCE_NAME </th>
+      <td mat-cell *matCellDef="let element"> {{element.SOURCE_NAME}} </td>
+    </ng-container>
+    <ng-container matColumnDef="HEADLINE">
+      <th mat-header-cell *matHeaderCellDef> HEADLINE </th>
+      <td mat-cell *matCellDef="let element"> {{element.HEADLINE}} </td>
+    </ng-container>
+  
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+</div>
+</div>
+
+
+
+<!-- <router-outlet></router-outlet> -->
